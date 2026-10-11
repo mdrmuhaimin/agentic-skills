@@ -1,0 +1,13 @@
+{
+  "name": "makewell",
+  "owner": { "name": "mdrmuhaimin" },
+  "metadata": { "description": "Makewell: a portable workflow for careful AI-assisted software development." },
+  "plugins": [
+    {
+      "name": "makewell",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Makewell: plan, verify, explain, and learn across coding agents."
+    }
+  ]
+}

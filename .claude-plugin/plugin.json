@@ -1,0 +1,7 @@
+{
+  "name": "makewell",
+  "version": "0.1.0",
+  "description": "Makewell: plan, verify, explain, and learn across Claude Code, Codex, and Cursor.",
+  "author": { "name": "mdrmuhaimin" },
+  "repository": "https://github.com/mdrmuhaimin/agentic-skills"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "makewell",
+  "owner": { "name": "mdrmuhaimin" },
+  "plugins": [
+    {
+      "name": "makewell",
+      "source": "./",
+      "description": "Makewell: plan, verify, explain, and learn across coding agents."
+    }
+  ]
+}

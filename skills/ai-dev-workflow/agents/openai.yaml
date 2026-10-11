@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI Development Workflow"
+  short_description: "Developer-approved software delivery and review"
+  default_prompt: "Use $ai-dev-workflow to take this software task through approved stages and verified implementation."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "makewell",
+  "version": "0.1.0",
+  "description": "Portable AI development workflow, verified code walkthroughs, learning, and mobile design skills.",
+  "author": { "name": "mdrmuhaimin" },
+  "repository": "https://github.com/mdrmuhaimin/agentic-skills",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Makewell",
+        "shortDescription": "Plan, build, review, and learn",
+        "longDescription": "A cross-tool skill suite for Claude Code, Codex, and Cursor. Clarify software work, create an approved specification and plan, implement and verify changes, explain code with source citations, learn from technical material, and design mobile interfaces. The workflow and walkthrough skills require explicit invocation. Tutor and design skills remain optional.",
+        "developerName": "Muhammad Raihan Muhaimin",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Plan software changes",
+          "Build and verify code",
+          "Explain code with citations",
+          "Learn technical concepts",
+          "Design mobile interfaces"
+        ],
+        "websiteURL": "https://github.com/mdrmuhaimin/agentic-skills",
+        "defaultPrompt": [
+          "Plan and implement a software change with review checkpoints.",
+          "Explain this code with citations to the source.",
+          "Teach me the concept behind this code."
+        ]
+      }
+    }
+  }
+}

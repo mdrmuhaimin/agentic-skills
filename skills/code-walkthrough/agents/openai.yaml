@@ -1,0 +1,6 @@
+interface:
+  display_name: "Code Walkthrough"
+  short_description: "Cited code explanations with excerpt verification"
+  default_prompt: "Use $code-walkthrough to explain this code area with cited facts and verified excerpts."
+policy:
+  allow_implicit_invocation: false
