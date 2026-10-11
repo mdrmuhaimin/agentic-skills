@@ -19,9 +19,15 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(portable['version'], '0.1.0')
         self.assertEqual(portable['extensions']['com.openai']['interface']['displayName'], 'Makewell')
         self.assertEqual(portable['extensions']['com.openai']['interface']['shortDescription'], 'Plan, build, review, and learn')
+        openai_interface = portable['extensions']['com.openai']['interface']
+        self.assertEqual(openai_interface['logo'], './assets/makewell-logo.svg')
+        self.assertEqual(openai_interface['composerIcon'], './assets/makewell-logo.svg')
         codex = self.read_json('.codex-plugin/plugin.json')
         self.assertEqual(codex['interface']['displayName'], 'Makewell')
         self.assertEqual(codex['interface']['shortDescription'], 'Plan, build, review, and learn')
+        self.assertEqual(codex['interface']['logo'], './assets/makewell-logo.svg')
+        self.assertEqual(codex['interface']['composerIcon'], './assets/makewell-logo.svg')
+        self.assertTrue((ROOT / 'assets/makewell-logo.svg').is_file())
         for host in ('claude', 'codex', 'cursor'):
             manifest = self.read_json(f'.{host}-plugin/plugin.json')
             self.assertEqual((manifest['name'], manifest['version']), (portable['name'], portable['version']))

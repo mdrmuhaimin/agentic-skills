@@ -20,6 +20,8 @@
           "Learn technical concepts",
           "Design mobile interfaces"
         ],
+        "logo": "./assets/makewell-logo.svg",
+        "composerIcon": "./assets/makewell-logo.svg",
         "websiteURL": "https://github.com/mdrmuhaimin/agentic-skills",
         "defaultPrompt": [
           "Plan and implement a software change with review checkpoints.",
