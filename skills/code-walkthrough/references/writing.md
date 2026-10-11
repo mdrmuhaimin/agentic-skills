@@ -1,59 +1,68 @@
-# Writing a walkthrough people can follow
+# Write a clear walkthrough
 
-The source PR's storyteller pairs writing guidance with a short sample. Preserve that pairing: rules describe the approach; the sample shows how it sounds.
+The teaching references are **Head First Java** and approachable technical books from **Manning Publications**. Use a concrete example, useful diagrams, reader questions, and short takeaways.
 
-The developer's intended teaching references are **Head First Java** and approachable technical books from **Manning Publications**. Take inspiration from their teaching approach, without copying book passages, characters, illustrations, or distinctive wording. This reference and its sample are original adaptations of the PR's storyteller guidance, not extracts from those books.
+Do not copy book passages, characters, illustrations, or distinctive wording. This guide and sample are original adaptations of the source PR.
 
-## Teach through a journey
+## Explain through one example
 
-- Talk to the reader as a kind senior colleague would at a whiteboard. Use “you,” familiar words, and sentences that carry one main idea. Explain a technical or business term when it first appears; add useful terms to the glossary.
-- Follow one explicitly fictional example from input to output. Make each section a stop on its journey, so the reader has a reason to learn the next concept.
-- Begin a substantial section with why it matters. Show a small diagram, a concrete situation, or a before/after view when it helps; then explain it. Choose diagram size for clarity rather than a fixed box count.
-- Copy source excerpts exactly from the fact sheet. Explain what each excerpt does and why it matters in plain language immediately afterwards. A reader should be able to follow the explanation without decoding the syntax.
-- End substantial sections with a short `**Remember:**` line expressing the useful takeaway. Do not add one to every small paragraph.
-- Once or twice in a longer walkthrough, answer the questions a reader may hesitate to ask in a “There are no dumb questions” box. Keep answers substantive and kind. Do not impose quizzes or exercises.
-- Light humour is optional. Never make the reader the joke. Warmth should not bury the explanation or soften a real limitation.
-- Follow the project's language conventions. Keep the reading-time estimate honest; cut secondary detail before breaking the example's journey.
+- Address the reader directly with familiar words.
+- Define a technical or business term at first use.
+- Follow one clearly fictional example from input to output.
+- Begin each substantial section with its purpose.
+- Add a small diagram or comparison when it clarifies the flow.
+- Explain each exact source excerpt immediately after it.
+- End substantial sections with a short `Remember` line when useful.
+- Answer one or two applicable reader questions in a longer walkthrough.
+- Keep uncertainty visible in prose, examples, and diagrams.
 
-These are teaching devices, not a rigid chapter template. A small code area may need only a few paragraphs. Never invent system behavior, business motives, or guarantees to make the story smoother.
+Use the writing rules in ASD-STE100 Issue 9. Limit instructions to 20 words per sentence and descriptions to 25 words.
 
-## Sample voice
+Use active voice, simple verb forms, and one topic per paragraph. Keep paragraphs within six sentences. Avoid contractions, idioms, semicolons, and figurative instructions.
 
-The following is an **illustrative writing sample**. Maya, the document, and the system behavior are fictional. It demonstrates presentation, not facts about the repository being explained. A real walkthrough must replace these behaviors with cited, audited fact-sheet claims.
+Use dictionary-approved meanings and defined software terms. Add unfamiliar terms to the glossary. Keep exact source text, commands, and interface labels.
 
-### One upload, several small jobs
+The teaching devices are optional structures, not a fixed chapter template. A small code area may need only a few paragraphs.
 
-You want to see how a file becomes something the application can search. Following one file makes the handoffs easier to see.
+## Sample
 
-Imagine Maya uploading a two-page guide. Maya is made up, and so is the guide. She clicks Upload, sees a confirmation, and then searches for a phrase she remembers from page two.
+This sample is illustrative. Maya, the document, and the system are fictional. The sample demonstrates presentation, not repository behavior.
 
-Between those two actions, the file has a few jobs to get through:
+### One upload, several jobs
+
+You need to understand how a file becomes searchable. Follow one file through the system to see the separate steps.
+
+Imagine Maya uploads a two-page guide. She sees an upload confirmation. Later, she searches for a phrase from page two.
+
+In this fictional system, four operations connect those actions:
 
 ```mermaid
 flowchart LR
     A[Receive the file] --> B[Extract its text]
-    B --> C[Split the text into pieces]
-    C --> D[Store the pieces for search]
+    B --> C[Divide the text into chunks]
+    C --> D[Store the chunks for search]
 ```
 
-Start with extraction. That means getting readable text out of the file. Think of the file as the envelope and the text as the letter inside. Receiving the envelope is useful, but search needs the letter.
+The first operation receives the file. The second operation extracts readable text from it. Search uses this text.
 
-Next comes splitting. In this fictional system, the extracted text is divided into smaller pieces called **chunks**. A chunk is simply a portion of that text. It is a separate step because reading the file and deciding how to divide its contents are different jobs.
+The third operation divides the text into smaller parts called **chunks**. A chunk contains part of the guide's text. The fourth operation stores these chunks for search.
 
-Maya still sees one guide. Inside the application, several smaller pieces now represent it. That distinction helps you follow the code: a file arriving and its searchable pieces being stored are separate moments in the journey.
+Maya sees one guide. The application stores several chunks from that guide. File receipt and search availability are separate events.
 
-> **There are no dumb questions**
+> **Questions and answers**
 >
-> **Q: Does an upload confirmation mean the guide is already searchable?**
+> **Q: Does the upload confirmation prove that the guide is searchable?**
 >
-> A: You cannot tell from the confirmation alone. Find where the application sends that response, then check which later steps have finished. In a real walkthrough, the answer needs evidence from the code.
+> A: The confirmation alone does not prove search availability. Check which operation sends the confirmation and which operations have completed.
 
-**Remember:** Follow the handoffs. Receiving a file, reading its text, and storing searchable pieces each answer a different question.
+**Remember:** File receipt, text extraction, and search storage are separate steps. In a real walkthrough, each statement about these steps needs source evidence.
 
-## Apply the style without adding facts
+## Keep the explanation accurate
 
-Read the fact sheet first, then choose an example that can travel through its verified flow. Fictional names and harmless example inputs may make the explanation concrete; their framing must stay explicit. Behavior, ordering, conditions, and causes still need evidence.
+Read the fact sheet before selecting the example. Fictional names and harmless inputs can clarify the flow. Behavior, order, conditions, and causes still need evidence.
 
-Carry uncertainty into the story: “the code does,” “we infer,” and “the cause is suspected” mean different things. Diagram labels, analogies, Q&A answers, and Remember lines receive the same claim audit as ordinary prose. An analogy helps explain a fact; it does not prove it.
+Distinguish “the code does,” “we infer,” and “the cause is suspected.” Do not increase certainty to simplify the story.
 
-For source excerpts and illustrative code blocks, follow [citations.md](citations.md). Passing the excerpt checker does not validate the narrative.
+Include factual diagram labels, question answers, and Remember lines in the claim audit. Follow [citations.md](citations.md) for excerpts and illustrative blocks.
+
+A passing excerpt check does not validate the explanation.

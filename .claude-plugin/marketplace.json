@@ -1,13 +1,13 @@
 {
   "name": "agentic-skills-marketplace",
   "owner": { "name": "mdrmuhaimin" },
-  "metadata": { "description": "Portable AI development, code walkthrough, learning, and mobile design skills." },
+  "metadata": { "description": "Understand & Build: a portable workflow for careful AI-assisted software development." },
   "plugins": [
     {
       "name": "agentic-skills",
       "source": "./",
       "version": "0.1.0",
-      "description": "Portable development, walkthrough, learning, and mobile design skills."
+      "description": "Understand & Build: plan, verify, explain, and learn across coding agents."
     }
   ]
 }

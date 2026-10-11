@@ -1,35 +1,59 @@
-# Stages and durable records
+# Stages and work records
 
 ## Understand
 
-Inspect entrypoints, tests, instructions, and existing patterns. State current behavior with `path:line` evidence and your best reading of the desired outcome. Ask focused questions only where answers affect the result and cannot be discovered. Do not manufacture confidence percentages or reject clear natural-language approval.
+Read the applicable project instructions, entrypoints, tests, and existing patterns. Examine each affected entry path. Distinguish current behavior from the requested change.
 
-Confirm who benefits, what changes, why it matters, observable success, constraints, and exclusions. For a concrete task, summarize instead of running a ceremonial interview. Get approval before the spec stage. Preserve that understanding in the spec when authorized.
+Present a short explanation in this order:
+
+1. Identify the users and the real-world flow.
+2. Describe current behavior with recently checked `path:line` evidence.
+3. Explain the problem and its effect on each affected user.
+4. Identify unaffected paths, exclusions, and unresolved product decisions.
+5. State the desired outcome and measurable success criteria.
+
+Use business terms before code terms. Define unfamiliar terms. Do not invent business motives or silently select between materially different interpretations.
+
+State assumptions and trade-offs. Present a simpler complete option when applicable. Ask only questions that affect the result and that available evidence cannot answer.
+
+For a concrete task, use a short explanation instead of an extensive interview. Get approval before the specification stage.
 
 ## Specify
 
-Write the smallest spec that resolves implementation-relevant choices:
+Write the smallest specification that resolves the necessary implementation decisions. Include:
 
-- Work identity, description/ticket, approved understanding, and cited current behavior.
-- Requirements and measurable acceptance criteria, including important failure paths.
-- Relevant interfaces, data changes, compatibility, and existing components to reuse.
-- Verification commands discovered from the repository, prerequisites, and manual checks.
-- Scope, accepted assumptions, and unresolved decisions. Blocking product questions return to the developer; do not guess them away.
-- Findings table: finding, evidence, in/out of scope, status (`suspected`, `verified`, or `dismissed` with reason).
+- The task identity, source context, and approved understanding.
+- Current behavior with evidence for each applicable entry path.
+- Requirements, exclusions, and measurable acceptance criteria.
+- Important interfaces, data changes, compatibility needs, and components to reuse.
+- Applicable product invariants and engineering risks.
+- Exact check commands, prerequisites, expected results, and manual checks.
+- Assumptions and unresolved decisions.
+- A findings table with evidence, scope, status, and reproduction steps.
 
-Record `Spec approval: pending` until the developer approves this version. Summarize, surface decisions, and wait. Requirement-changing revisions invalidate the affected approval until reconfirmed.
+Use [engineering.md](engineering.md) only for risks applicable to this change. For new interfaces or unfamiliar libraries, verify behavior against official documentation for the installed version.
+
+Record project boundaries as **Always**, **Ask first**, and **Never**. These boundaries describe actual project requirements. They do not add unrelated approval requirements.
+
+Tell the developer about a new bug or gap when you find it. Record the finding as `suspected` until evidence confirms it. Include safe reproduction steps. Mark a rejected finding `dismissed` with a reason.
+
+Include verified findings that meet the acceptance criteria in the plan. Keep unrelated findings outside the task. Draft any proposed external issue or comment before you request publication approval.
+
+Record `Spec approval: pending` until the developer approves this version. Save the understanding in the specification. Reconfirm approval after changes to requirements.
 
 ## Plan
 
-Use vertical slices delivering observable behavior, ordered by dependencies. Bound tasks to focused implementation and checks; do not enforce an arbitrary file count. Identify reuse before prescribing new code.
+Use ordered tasks that each produce an observable result. Include dependent callers, contracts, tests, fixtures, and configuration in the affected-file list.
 
-Include this human-maintained record, adapted to existing project formats:
+Identify existing components before new code. Bound each task to a focused change and its checks. Do not use an arbitrary file-count limit.
+
+Use this record, or the equivalent project format:
 
 ```markdown
-# Plan: <work identity>
+# Plan: <task identity>
 Spec: <relative link>
-Understanding approval: <actual approval and date, or pending>
-Spec approval: <actual approval and date, or pending>
+Understanding approval: <actual decision and date, or pending>
+Spec approval: <actual decision and date, or pending>
 Plan approval: pending
 Commit policy: uncommitted
 Build base: pending
@@ -40,38 +64,46 @@ Final verification: pending
 
 - [ ] Task 1: <observable outcome>
   - Depends on: <task IDs or none>
-  - Files: <expected paths>
+  - Files: <affected paths, including callers and tests>
+  - Context: <relevant specification sections and source references>
   - Complexity: simple | complex
-  - Acceptance: <specific condition>
+  - Acceptance: <observable condition>
   - Verify: <exact command or manual observation>
-  - Risk: <ordinary, or high-risk with reason and pre-task gate>
+  - Risk: <ordinary, or high-risk with reason and pre-task decision>
+  - Attempts: 0; corrective retries used: 0
   - Result: pending
 
-Checkpoint after Task <N>: <what the developer will review>
-Final checks: <commands and observations covering acceptance criteria>
+Checkpoint after Task <N>: <result for the developer to review>
+Final checks: <checks that cover the acceptance criteria>
 ```
 
-Choose checkpoints around coherent milestones rather than every edit. Mark high-risk tasks when consequences or project instructions warrant a pre-task decision, such as destructive data changes or live external writes. Writing a migration and applying it are different actions. A model prompt edit is not automatically an external action, but may need quality evaluation.
+Place checkpoints after coherent milestones. Mark high-risk tasks from their actual consequences and project rules. Distinguish writing a migration from applying it.
 
-Present commands, risks, dependencies, and commit-policy choice at the gate. Record actual approval, not a synthesized one. Broader scope, new dependencies, or unexpected live-system actions return to the developer when not already authorized.
+At the plan decision, present dependencies, checks, risks, and the local commit policy. Keep the default of uncommitted changes. Do not commit code that you cannot explain.
+
+Return new scope, dependencies, or live-system actions to the developer when existing authorization does not cover them.
 
 ## Resume
 
-Prefer explicit artifact links and identity over filename guessing. Recorded approvals determine the next stage:
+Use recorded approvals to select the next action:
 
-| State | Next action |
+| Recorded state | Next action |
 |---|---|
-| No approved understanding | Understand |
-| Understanding approved, spec absent/unapproved | Specify or present spec for approval |
-| Spec approved, plan absent/unapproved | Plan or present plan for approval |
-| Plan approved, unfinished tasks | Build from first unfinished task |
-| Tasks complete, final checks/review absent | Final checks and review |
-| Checks/review complete | Report, or revise requested scope |
+| Understanding lacks approval | Understand |
+| Understanding approved, specification absent or unapproved | Specify or present the existing specification |
+| Specification approved, plan absent or unapproved | Plan or present the existing plan |
+| Plan approved, tasks unfinished | Resume the first unfinished task |
+| Tasks complete, final checks or review absent | Run final checks and review |
+| Final checks and review complete | Report the result or handle the requested revision |
 
-Do not infer approval from files, branches, or ticket status. For imported artifacts with missing approval, present the current version instead of repeating research.
+Do not infer approval from filenames, branches, or ticket status. Present an existing artifact when approval is missing. Do not repeat research without a reason.
 
-Inspect status, task diff, and results before resuming. For an unfinished task with partial changes, identify ownership and ask whether to continue those edits or restart that task. Restarting never authorizes discarding unrelated work. Checked tasks need acceptance evidence; if missing or invalidated by later edits, verify them before relying on them.
+Examine changes and check results before implementation resumes. Identify the owner of partial task changes. Ask whether to continue or restart those changes when the choice is unclear.
 
-Keep the recorded build base across interruptions. If unavailable locally, resolve it explicitly rather than silently replacing it with HEAD. A non-Git project may use a documented before snapshot, disclosing the loss of commit-based review.
+A restart never authorizes removal of unrelated work. Keep the recorded corrective-retry count across sessions. Do not reset a failed task's retry allowance.
 
-Final verification and review must have recorded evidence too: commands/outcomes, reviewed revision or working-tree snapshot, review mode/verdict, and findings with their resolution. An absent record is pending even when every task is ticked. Later edits invalidate the affected evidence; rerun the relevant checks and review the final changed snapshot before delivering it.
+Keep the original build base. Resolve an unavailable base explicitly. For a non-Git project, use a recorded before snapshot and disclose the review limit.
+
+Require acceptance evidence for completed tasks. Require final commands, results, reviewed source state, review mode, verdict, and finding resolutions.
+
+Mark absent records `pending`. Later edits invalidate affected evidence. Repeat the affected checks and review the corrected source state before delivery.

@@ -1,5 +1,7 @@
 # Complete PR #319 comparison
 
+This record describes the 2026-10-10 import. The [2026-10-11 practice review](best-practices-review.md) records later engineering and language changes.
+
 Audited on **2026-10-10** against commit **62e07a50ccfb002ca359495dbaf49bf44c8f3ab0**. The PR head still matched that pin. All **79 changed files** were fetched and read: 17 workflow/onboarding files, two spec/plan artifacts, 29 Git-learning files, 23 prompt-story files, and eight conventions/wrapper/catalog/documentation files. The PR description and all four discussion comments were also examined; there were no submitted reviews or inline review comments.
 
 Independent readers covered the workflow and design artifacts, onboarding/checker/tests, and excluded components. The coordinating review covered conventions, packaging, shared documentation, discussion, and the generated package. Downloaded file hashes were checked against the snapshot inventory. No upstream scripts or hooks were executed.

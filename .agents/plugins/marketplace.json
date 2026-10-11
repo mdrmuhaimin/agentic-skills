@@ -1,6 +1,10 @@
 {
   "name": "agentic-skills-marketplace",
-  "interface": { "displayName": "Agentic Skills" },
+  "interface": {
+    "displayName": "Understand & Build",
+    "shortDescription": "Plan, build, review, and learn",
+    "longDescription": "A cross-tool skill suite for careful AI-assisted software development, code walkthroughs, technical learning, and mobile design."
+  },
   "plugins": [
     {
       "name": "agentic-skills",

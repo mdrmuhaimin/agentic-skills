@@ -17,6 +17,11 @@ class PackageTests(unittest.TestCase):
         portable = self.read_json('plugin.json')
         self.assertEqual(portable['name'], 'agentic-skills')
         self.assertEqual(portable['version'], '0.1.0')
+        self.assertEqual(portable['extensions']['com.openai']['interface']['displayName'], 'Understand & Build')
+        self.assertEqual(portable['extensions']['com.openai']['interface']['shortDescription'], 'Plan, build, review, and learn')
+        codex = self.read_json('.codex-plugin/plugin.json')
+        self.assertEqual(codex['interface']['displayName'], 'Understand & Build')
+        self.assertEqual(codex['interface']['shortDescription'], 'Plan, build, review, and learn')
         for host in ('claude', 'codex', 'cursor'):
             manifest = self.read_json(f'.{host}-plugin/plugin.json')
             self.assertEqual((manifest['name'], manifest['version']), (portable['name'], portable['version']))
@@ -53,8 +58,8 @@ class PackageTests(unittest.TestCase):
                 policy = (skill / 'agents/openai.yaml').read_text(encoding='utf-8')
                 self.assertRegex(policy, r'(?m)^policy:\s*\n  allow_implicit_invocation: false$')
 
-    def test_new_skill_supporting_links_exist_and_remain_within_skill(self):
-        for name in MANUAL:
+    def test_skill_supporting_links_exist_and_remain_within_skill(self):
+        for name in NAMES:
             skill = ROOT / 'skills' / name
             for markdown in skill.rglob('*.md'):
                 text = markdown.read_text(encoding='utf-8')

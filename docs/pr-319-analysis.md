@@ -1,5 +1,7 @@
 # PR #319: source analysis and portable adaptation
 
+This record describes the 2026-10-10 import. The [2026-10-11 practice review](best-practices-review.md) records later engineering and language changes.
+
 Source: [Simplexico / NHOS AI Workbench PR #319](https://github.com/simplexico/nhos-ai-workbench/pull/319), **NHOS-448: Claude Code conventions and the prompt-story, git-learning and mm-workflow plugins**. Baseline commit: `62e07a50ccfb002ca359495dbaf49bf44c8f3ab0`. The PR was open when examined on 2026-10-10; this import describes that commit rather than tracking a moving branch.
 
 The follow-up audit inspected all 79 changed files, the PR description, and all four discussion comments. See [the file-by-file comparison](pr-319-comparison.md) for coverage, retained/adapted behavior, exclusions, and fixes found by independent review.

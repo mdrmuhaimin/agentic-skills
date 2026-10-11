@@ -1,7 +1,7 @@
 {
   "name": "agentic-skills",
   "version": "0.1.0",
-  "description": "Portable AI development workflow, verified code walkthroughs, learning, and mobile design skills.",
+  "description": "Understand & Build: plan, verify, explain, and learn across Claude Code, Codex, and Cursor.",
   "author": { "name": "mdrmuhaimin" },
   "skills": "./skills"
 }
