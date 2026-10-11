@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Makewell</title>
+  <desc id="desc">A connected path forming a W, representing careful, step-by-step software work.</desc>
+  <defs>
+    <linearGradient id="plate" x1="48" y1="32" x2="464" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#20342F"/>
+      <stop offset="1" stop-color="#101B19"/>
+    </linearGradient>
+    <linearGradient id="path" x1="126" y1="210" x2="386" y2="330" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B8F2DC"/>
+      <stop offset=".52" stop-color="#65D8AF"/>
+      <stop offset="1" stop-color="#A8EBD2"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#plate)"/>
+  <circle cx="256" cy="256" r="169" fill="none" stroke="#FFFFFF" stroke-opacity=".08" stroke-width="2"/>
+  <path d="M126 205h54l76 127 76-127h54" fill="none" stroke="url(#path)" stroke-linecap="round" stroke-linejoin="round" stroke-width="26"/>
+  <circle cx="126" cy="205" r="16" fill="#B8F2DC"/>
+  <circle cx="386" cy="205" r="16" fill="#A8EBD2"/>
+  <circle cx="256" cy="332" r="13" fill="#65D8AF"/>
+</svg>
