@@ -2,7 +2,7 @@
 
 ## Current review: 2026-10-11
 
-Package: **agentic-skills 0.1.0**. Platform: macOS. Tools: Python 3.13.4, Git 2.50.1, Claude Code 2.1.296, and Codex 0.159.2.
+Package: **Makewell 0.1.0** (`makewell`). Platform: macOS. Tools: Python 3.13.4, Git 2.50.1, Claude Code 2.1.296, and Codex 0.159.2.
 
 This review includes new engineering references, instruction maintenance, Ponytail practices, and the language pass. The four skills retain their identities and invocation policies.
 
@@ -37,10 +37,11 @@ The tests do not create editor settings or marketplace configuration. User-scope
 
 | Check | Result | Limit |
 |---|---|---|
-| Claude native validators | All three passed on the actual package | No interactive invocation or model-routing test |
+| Claude native validators | All three passed before the package ID changed to `makewell` | The `claude` executable was unavailable in the shell for a post-rename run |
 | Codex native project discovery | All four installed skill names appeared with repository scope and no discovery errors | Temporary project only, with no model call |
-| Portable plugin schema | `plugin.json` passed Agent Plugins 1.0.0 validation | Schema validation does not test host behavior |
-| Cursor schemas | Plugin and marketplace manifests passed the official schemas | No Cursor editor reload or invocation test |
+| Codex marketplace package | Codex 0.159.2 added the local `makewell` catalog, listed `makewell@makewell`, and installed version `0.1.0` under a temporary `CODEX_HOME` | Isolated install only; no user marketplace or plugin cache changed |
+| Portable plugin schema | `plugin.json` passed Agent Plugins 1.0.0 validation before the ID change; `makewell` matches its lowercase identifier rule | The validator was not rerun after the name-only change; schema validation does not test host behavior |
+| Cursor schemas | Plugin and marketplace manifests passed the official schemas before the package ID changed to `makewell` | The schemas were not rerun after the name-only manifest update; no Cursor editor reload or invocation test |
 | Skill common fields | All four passed skill-creator validation in temporary copies | The common validator does not accept the host extension field |
 | Invocation extensions | Actual frontmatter and `agents/openai.yaml` passed separate checks | Metadata checks do not test implicit model routing |
 
@@ -125,11 +126,11 @@ Interactive host invocation, native worker execution, real ticket connectors, ac
 
 Tests use synthetic approvals and temporary projects. No live installation, marketplace submission, deployment, or release publication occurred during this review.
 
-The source coverage and adaptations appear in [best-practices-review.md](best-practices-review.md). Historical findings below describe the earlier package state.
+The source coverage and adaptations appear in [best-practices-review.md](best-practices-review.md). Historical findings below describe the earlier package ID, `agentic-skills`.
 
 # Earlier validation: 2026-10-10
 
-Validated on **2026-10-10** for plugin **agentic-skills 0.1.0**, on macOS. Helpers require Python 3.10+ and Git; validation ran with Python 3.13. Native tools: Claude Code **2.1.296**, Codex CLI/app-server **0.159.2**. These are observations of this checkout, not a guarantee about every host version.
+Validated on **2026-10-10** for the development plugin ID **agentic-skills 0.1.0**, on macOS. Helpers require Python 3.10+ and Git; validation ran with Python 3.13. Native tools: Claude Code **2.1.296**, Codex CLI/app-server **0.159.2**. These are observations of that checkout, not a guarantee about every host version.
 
 ## Automated helper and package checks
 

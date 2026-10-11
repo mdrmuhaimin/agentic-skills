@@ -1,13 +1,13 @@
 {
-  "name": "agentic-skills-marketplace",
+  "name": "makewell",
   "interface": {
-    "displayName": "Understand & Build",
+    "displayName": "Makewell",
     "shortDescription": "Plan, build, review, and learn",
     "longDescription": "A cross-tool skill suite for careful AI-assisted software development, code walkthroughs, technical learning, and mobile design."
   },
   "plugins": [
     {
-      "name": "agentic-skills",
+      "name": "makewell",
       "source": { "source": "local", "path": "./" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"

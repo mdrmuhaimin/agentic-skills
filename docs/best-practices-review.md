@@ -1,6 +1,6 @@
 # Software development practice review
 
-Review date: **2026-10-11**. Package: **agentic-skills 0.1.0**.
+Review date: **2026-10-11**. Package: **Makewell 0.1.0** (plugin ID `makewell`).
 
 This update checks the source instructions, published engineering guidance, Ponytail, and technical language. It keeps four independent skills and their invocation policies.
 

@@ -1,6 +1,8 @@
-# Understand & Build
+# Makewell
 
-**Agentic Skills** is a portable skill plugin for Claude Code, Codex, and Cursor. Version: **0.1.0**. Each skill has one maintained copy under `skills/`.
+Makewell is a portable skills plugin for Claude Code, Codex, and Cursor. Its one-word plugin ID is `makewell`; its version is **0.1.0**. Each skill has one maintained copy under `skills/`.
+
+The GitHub package is public. It is not listed in a host's public directory yet.
 
 | Skill | Purpose | Invocation |
 |---|---|---|
@@ -13,14 +15,16 @@ The skills stay independent. The workflow does not require a tracker, a particul
 
 ## Install from GitHub
 
-The packaged version is on branch `codex/portable-agentic-skills`. Clone that branch:
+Clone the repository's `main` branch:
 
 ```sh
-git clone --branch codex/portable-agentic-skills https://github.com/mdrmuhaimin/agentic-skills.git
+git clone https://github.com/mdrmuhaimin/agentic-skills.git
 cd agentic-skills
 ```
 
 Choose plugin installation or standalone installation for each skill. Duplicate copies can cause duplicate discovery.
+
+If you installed the earlier development package as `agentic-skills`, remove it before you install `makewell`.
 
 ### Claude Code plugin
 
@@ -28,7 +32,7 @@ Run these commands from the checkout:
 
 ```sh
 claude plugin marketplace add .
-claude plugin install agentic-skills@agentic-skills-marketplace --scope user
+claude plugin install makewell@makewell --scope user
 ```
 
 For project scope, add the marketplace with the absolute checkout path. Run the install command with `--scope project` from the target project.
@@ -39,10 +43,10 @@ After the package reaches the default GitHub branch, direct marketplace installa
 
 ```sh
 claude plugin marketplace add mdrmuhaimin/agentic-skills
-claude plugin install agentic-skills@agentic-skills-marketplace --scope user
+claude plugin install makewell@makewell --scope user
 ```
 
-Select a skill from the `/` menu. Plugin commands include `/agentic-skills:ai-dev-workflow` and `/agentic-skills:code-walkthrough`.
+Select a skill from the `/` menu. Plugin commands include `/makewell:ai-dev-workflow` and `/makewell:code-walkthrough`.
 
 See [Claude Code marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
@@ -51,13 +55,13 @@ See [Claude Code marketplace documentation](https://code.claude.com/docs/en/plug
 A CLI with plugin commands can install directly from GitHub:
 
 ```sh
-codex plugin marketplace add mdrmuhaimin/agentic-skills --ref codex/portable-agentic-skills
-codex plugin add agentic-skills@agentic-skills-marketplace
+codex plugin marketplace add mdrmuhaimin/agentic-skills
+codex plugin add makewell@makewell
 ```
 
 For a local checkout, replace the marketplace source with its path. In the desktop app, add the checkout as a local marketplace source.
 
-Install **agentic-skills** from **agentic-skills-marketplace**. Adding the catalog alone does not install the plugin.
+Install **Makewell** from **makewell**. Adding the catalog alone does not install the plugin.
 
 Refresh discovery or restart if needed. Select the skill from the skill selector or `$` menu.
 
@@ -73,7 +77,7 @@ from pathlib import Path
 import shutil
 
 source = Path.cwd()
-target = Path.home() / ".cursor/plugins/local/agentic-skills"
+target = Path.home() / ".cursor/plugins/local/makewell"
 target.mkdir(parents=True, exist_ok=False)
 shutil.copy2(source / "plugin.json", target / "plugin.json")
 shutil.copytree(source / ".cursor-plugin", target / ".cursor-plugin")
@@ -174,7 +178,7 @@ See the [citation format](skills/code-walkthrough/references/citations.md) for r
 
 For a local plugin source, pull the checkout before refreshing the marketplace. Use the host's plugin update controls.
 
-Claude supports `claude plugin update agentic-skills@agentic-skills-marketplace`. For Codex, refresh the marketplace and use its plugin controls.
+Claude supports `claude plugin update makewell@makewell`. For Codex, refresh the marketplace and use its plugin controls.
 
 Replace Cursor local copies explicitly, then reload. Standalone updates refuse changed destinations. Move the previous copy aside before installing again.
 

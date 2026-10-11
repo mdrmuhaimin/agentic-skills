@@ -15,12 +15,12 @@ class PackageTests(unittest.TestCase):
 
     def test_manifest_identity_version_and_shared_skill_paths(self):
         portable = self.read_json('plugin.json')
-        self.assertEqual(portable['name'], 'agentic-skills')
+        self.assertEqual(portable['name'], 'makewell')
         self.assertEqual(portable['version'], '0.1.0')
-        self.assertEqual(portable['extensions']['com.openai']['interface']['displayName'], 'Understand & Build')
+        self.assertEqual(portable['extensions']['com.openai']['interface']['displayName'], 'Makewell')
         self.assertEqual(portable['extensions']['com.openai']['interface']['shortDescription'], 'Plan, build, review, and learn')
         codex = self.read_json('.codex-plugin/plugin.json')
-        self.assertEqual(codex['interface']['displayName'], 'Understand & Build')
+        self.assertEqual(codex['interface']['displayName'], 'Makewell')
         self.assertEqual(codex['interface']['shortDescription'], 'Plan, build, review, and learn')
         for host in ('claude', 'codex', 'cursor'):
             manifest = self.read_json(f'.{host}-plugin/plugin.json')
@@ -32,10 +32,10 @@ class PackageTests(unittest.TestCase):
     def test_marketplaces_expose_only_this_root_plugin(self):
         for path in ('.claude-plugin/marketplace.json', '.cursor-plugin/marketplace.json', '.agents/plugins/marketplace.json'):
             catalog = self.read_json(path)
-            self.assertEqual(catalog['name'], 'agentic-skills-marketplace')
+            self.assertEqual(catalog['name'], 'makewell')
             self.assertEqual(len(catalog['plugins']), 1)
             plugin = catalog['plugins'][0]
-            self.assertEqual(plugin['name'], 'agentic-skills')
+            self.assertEqual(plugin['name'], 'makewell')
             source = plugin['source']
             if isinstance(source, dict):
                 self.assertEqual(source['source'], 'local')

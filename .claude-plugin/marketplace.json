@@ -1,13 +1,13 @@
 {
-  "name": "agentic-skills-marketplace",
+  "name": "makewell",
   "owner": { "name": "mdrmuhaimin" },
-  "metadata": { "description": "Understand & Build: a portable workflow for careful AI-assisted software development." },
+  "metadata": { "description": "Makewell: a portable workflow for careful AI-assisted software development." },
   "plugins": [
     {
-      "name": "agentic-skills",
+      "name": "makewell",
       "source": "./",
       "version": "0.1.0",
-      "description": "Understand & Build: plan, verify, explain, and learn across coding agents."
+      "description": "Makewell: plan, verify, explain, and learn across coding agents."
     }
   ]
 }

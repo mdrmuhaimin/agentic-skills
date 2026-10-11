@@ -1,11 +1,11 @@
 {
-  "name": "agentic-skills-marketplace",
+  "name": "makewell",
   "owner": { "name": "mdrmuhaimin" },
   "plugins": [
     {
-      "name": "agentic-skills",
+      "name": "makewell",
       "source": "./",
-      "description": "Understand & Build: plan, verify, explain, and learn across coding agents."
+      "description": "Makewell: plan, verify, explain, and learn across coding agents."
     }
   ]
 }
