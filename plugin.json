@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agentic-skills",
+  "version": "0.1.0",
+  "description": "Portable AI development workflow, verified code walkthroughs, learning, and mobile design skills.",
+  "author": { "name": "mdrmuhaimin" },
+  "repository": "https://github.com/mdrmuhaimin/agentic-skills"
+}

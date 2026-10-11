@@ -1,0 +1,13 @@
+{
+  "name": "agentic-skills-marketplace",
+  "owner": { "name": "mdrmuhaimin" },
+  "metadata": { "description": "Portable AI development, code walkthrough, learning, and mobile design skills." },
+  "plugins": [
+    {
+      "name": "agentic-skills",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Portable development, walkthrough, learning, and mobile design skills."
+    }
+  ]
+}

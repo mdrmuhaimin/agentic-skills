@@ -1,0 +1,11 @@
+{
+  "name": "agentic-skills-marketplace",
+  "owner": { "name": "mdrmuhaimin" },
+  "plugins": [
+    {
+      "name": "agentic-skills",
+      "source": "./",
+      "description": "Portable development, walkthrough, learning, and mobile design skills."
+    }
+  ]
+}
